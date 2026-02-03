@@ -7,9 +7,10 @@ const resultScreen = document.getElementById("resultScreen");
 function moveNoButton() {
   const padding = 20;
 
-  const btnRect = noBtn.getBoundingClientRect();
-  const btnW = btnRect.width || 120;
-  const btnH = btnRect.height || 50;
+  // ensure button has real size
+  const rect = noBtn.getBoundingClientRect();
+  const btnW = rect.width || 120;
+  const btnH = rect.height || 50;
 
   const maxX = window.innerWidth - btnW - padding;
   const maxY = window.innerHeight - btnH - padding;
@@ -21,7 +22,7 @@ function moveNoButton() {
   noBtn.style.top = `${y}px`;
 }
 
-// Make NO run away when user tries to click/hover/touch it
+// Make NO run away when user tries to interact
 ["mouseenter", "mousedown", "touchstart", "click"].forEach(evt => {
   noBtn.addEventListener(evt, (e) => {
     e.preventDefault();
@@ -35,6 +36,5 @@ yesBtn.addEventListener("click", () => {
   resultScreen.classList.remove("hidden");
 });
 
-// Start NO button at a random place
 window.addEventListener("load", moveNoButton);
 window.addEventListener("resize", moveNoButton);
