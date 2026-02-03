@@ -1,15 +1,4 @@
-:root{
-  --bg1:#ffe6f1;
-  --bg2:#ffffff;
-  --yes:#22c55e;
-  --no:#ef4444;
-  --text:#111827;
-}
-
-*{
-  box-sizing:border-box;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-}
+*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
 
 body{
   margin:0;
@@ -17,112 +6,119 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background: radial-gradient(circle at 30% 20%, var(--bg1), var(--bg2));
-  color:var(--text);
+  background: #f9c9cf; /* pink like reel */
   overflow:hidden;
 }
 
 .card{
-  width:min(560px, 92vw);
-  background:rgba(255,255,255,0.88);
-  border:1px solid rgba(0,0,0,0.06);
-  border-radius:20px;
-  padding:22px 18px 26px;
+  width:min(520px, 92vw);
+  background: rgba(255,255,255,0.85);
+  border-radius: 22px;
+  padding: 28px 22px 26px;
   text-align:center;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
   backdrop-filter: blur(10px);
-}
-
-.hero{
-  width:min(420px, 92%);
-  height:auto;
-  border-radius:16px;
-  display:block;
-  margin: 6px auto 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
-}
-
-.title{
-  margin: 8px 0 8px;
-  font-size: 30px;
-  line-height: 1.15;
-}
-
-.sub{
-  margin:0 0 14px;
-  opacity:0.75;
-}
-
-.btn-row{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  position:relative;
-}
-
-.btn{
-  border:none;
-  padding:14px 22px;
-  border-radius:14px;
-  font-size:18px;
-  cursor:pointer;
-  font-weight:800;
-  transition: transform 0.12s ease;
-  user-select:none;
-}
-
-.btn:active{ transform: scale(0.98); }
-
-.yes{
-  background:var(--yes);
-  color:white;
-}
-
-.no{
-  background:var(--no);
-  color:white;
-  position:fixed; /* lets it jump anywhere */
-  left: calc(50% + 90px);
-  top:  calc(50% + 60px);
-}
-
-.hint{
-  margin-top:18px;
-  opacity:0.6;
-  font-size:14px;
 }
 
 .hidden{ display:none; }
 
+.img-wrap{
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+.top-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* fills the square */
+  object-position: center;/* keeps face centered */
+  display: block;
+}
+
+.question{
+  margin: 6px 0 16px;
+  font-size: 30px;
+  font-weight: 800;
+  color:#4b4b4b;
+}
+
+.btn-row{
+  display:flex;
+  gap: 26px;
+  justify-content:center;
+  align-items:center;
+  margin-top: 8px;
+  position: relative;
+}
+
+.yes{
+  border: none;
+  background: #ff4d79; /* pink button */
+  color: white;
+  font-weight: 800;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor:pointer;
+  box-shadow: 0 8px 18px rgba(255,77,121,0.35);
+  transition: transform 0.12s ease;
+}
+
+.yes:active{ transform: scale(0.97); }
+
+/* "No" looks like plain text but must be visible initially */
+.no{
+  border: none;
+  background: #ff4d79;   /* same pink as Yes */
+  color: white;
+  font-weight: 800;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(255,77,121,0.35);
+  transition: transform 0.12s ease;
+
+  /* IMPORTANT — start visible next to Yes */
+  position: relative;
+}
+
+
+
 .yay{
-  font-size:42px;
-  margin: 8px 0 10px;
+  margin: 0 0 6px;
+  font-size: 42px;
 }
 
 .small{
   margin: 0 0 14px;
-  opacity: 0.75;
+  color:#444;
+  opacity:0.8;
 }
 
 .yay-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:12px;
-  width:min(520px, 95%);
-  margin: 10px auto 8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 14px auto 8px;
 }
+
 
 .yay-pic{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+  width: 320px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
 }
 
+
 .love{
-  margin-top: 12px;
+  margin: 12px 0 0;
   font-size: 22px;
   font-weight: 900;
 }

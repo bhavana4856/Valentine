@@ -8,34 +8,33 @@
 </head>
 <body>
 
-  <!-- ASK SCREEN -->
-  <main class="card" id="askScreen">
-    <img class="hero" src="assets/ask.png" alt="Valentine image" />
+<!-- ASK SCREEN -->
+<main class="card" id="askScreen">
+  <div class="img-wrap">
+    <img class="top-img" src="assets/ask.png" alt="valentine image">
+  </div>
 
-    <h1 class="title">Harsha 💖 will you be my Valentine?</h1>
-    <p class="sub">Choose wisely 😌</p>
+  <h1 class="question">Harsha, will you be my Valentine?</h1>
 
-    <div class="btn-row">
-      <button id="yesBtn" class="btn yes">Yes 💘</button>
-      <button id="noBtn" class="btn no">No 😭</button>
-    </div>
+  <div class="btn-row">
+    <button id="yesBtn" class="yes">Yes</button>
+    <button id="noBtn" class="no">No</button>
+  </div>
+</main>
 
-    <p class="hint">Try clicking “No” 😏</p>
-  </main>
+<!-- RESULT SCREEN -->
+<main class="card hidden" id="resultScreen">
+  <h1 class="yay">💖 YAY!!! 💖</h1>
+  <p class="small">Best decision ever 😘</p>
 
-  <!-- RESULT SCREEN -->
-  <main class="card hidden" id="resultScreen">
-    <h1 class="yay">💖 YAY!!! 💖</h1>
-    <p class="small">Best decision ever 😘</p>
+  <div class="yay-grid">
+    <img class="yay-pic" src="assets/yay1.png" alt="yay 1">
 
-    <div class="yay-grid">
-      <img class="yay-pic" src="assets/yay1.png" alt="Yay pic 1" />
-      <img class="yay-pic" src="assets/yay2.png" alt="Yay pic 2" />
-    </div>
+  </div>
 
-    <p class="love">I love you ❤️</p>
-  </main>
+  <p class="love">I love you ❤️</p>
+</main>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

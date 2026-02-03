@@ -3,38 +3,49 @@ const noBtn = document.getElementById("noBtn");
 const askScreen = document.getElementById("askScreen");
 const resultScreen = document.getElementById("resultScreen");
 
-// Move NO button to a random spot inside the viewport
-function moveNoButton() {
-  const padding = 20;
+let dodgeCount = 0;
 
-  // ensure button has real size
+function moveNoButton() {
+  noBtn.style.position = "fixed";   // becomes floating only when dodging
+
+  const padding = 16;
   const rect = noBtn.getBoundingClientRect();
-  const btnW = rect.width || 120;
-  const btnH = rect.height || 50;
+  const btnW = rect.width || 80;
+  const btnH = rect.height || 40;
 
   const maxX = window.innerWidth - btnW - padding;
   const maxY = window.innerHeight - btnH - padding;
 
-  const x = Math.floor(Math.random() * (maxX - padding + 1)) + padding;
-  const y = Math.floor(Math.random() * (maxY - padding + 1)) + padding;
+  const x = Math.random() * (maxX - padding) + padding;
+  const y = Math.random() * (maxY - padding) + padding;
 
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
 }
 
-// Make NO run away when user tries to interact
+
+// optional viral effect: YES grows a little each time NO dodges
+function growYes() {
+  dodgeCount += 1;
+  const scale = 1 + Math.min(dodgeCount * 0.06, 0.6); // max 1.6x
+  yesBtn.style.transform = `scale(${scale})`;
+}
+
 ["mouseenter", "mousedown", "touchstart", "click"].forEach(evt => {
   noBtn.addEventListener(evt, (e) => {
     e.preventDefault();
     moveNoButton();
+    growYes();
   }, { passive: false });
 });
 
-// YES click -> show result screen
 yesBtn.addEventListener("click", () => {
   askScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
 });
 
-window.addEventListener("load", moveNoButton);
+window.addEventListener("load", () => {
+  // keep No visible at start; don't move immediately
+});
+
 window.addEventListener("resize", moveNoButton);
